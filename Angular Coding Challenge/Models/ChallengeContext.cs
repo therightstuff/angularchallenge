@@ -9,7 +9,7 @@ namespace Angular_Coding_Challenge.Models
 {
 	public partial class ChallengeContext : DbContext
 	{
-        public ChallengeContext() : base("Data Source=SMIRK\\SMIRKEXPRESS;Initial Catalog=angular;User Id=intracom;Password=intracom;") {
+        public ChallengeContext() : base("Data Source=.\\SQLEXPRESS;Initial Catalog=angular;User Id=username;Password=password;") {
             Database.SetInitializer<ChallengeContext>(new ChallengeDbInitializer());
         }
     }
@@ -18,7 +18,6 @@ namespace Angular_Coding_Challenge.Models
     {
         protected override void Seed(ChallengeContext context)
         {
-            // seeding wasn't called for some reason, ignoring
             IList<Index> defaultIndices = new List<Index>();
 
             defaultIndices.Add(new Index { Name = "SPDR S&P 500 ETF", Ticker = "SPY", Price = 272.12M });
