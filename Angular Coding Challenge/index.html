@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Angular Coding Challenge</title>
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/app/users-controller.js"></script>
+</head>
+<body>
+    <div id="bodyContainer" ng-app="AngularCodingChallenge">
+        <section id="content">
+            <div class="container">
+                <div class="row">
+                    <div class="flip-container text-center col-md-12" ng-controller="UsersController" blocked-ng-init="nextQuestion()">
+                        <div class="menu">
+                            <h4>Status: {{status}}</h4>
+                            <hr />
+                            Menu: <a href="swagger/">Swagger UI</a>
+                            <hr />
+                        </div>
+                        <div class="main">
+
+                            <h3>Authentication</h3>
+                            <form>
+                                username: <input id="username" name="username" ng-model="username" /><br />
+                                password: <input id="password" name="password" ng-model="password" type="password" />
+                                <button ng-click="authenticate()">Authenticate</button>
+                            </form>
+
+                            <h3>Users</h3>
+                            <button ng-click="getUserList()">Get Users</button> (admin only)
+                            <table>
+                                <tr><td></td><td>User Id</td><td>Username</td><td>Administrator</td></tr>
+                                <tr ng-repeat="user in users">
+                                    <td><input type="radio" name="selectedUser" /></td>
+                                    <td>{{user.UserId}}</td>
+                                    <td>{{user.Username}}</td>
+                                    <td align="center"><input type="checkbox" ng-checked="user.IsAdministrator" /></td>
+                                </tr>
+                            </table>
+
+                            <h3>Indices</h3>
+                            <button ng-click="getIndexList()">Get Indices</button>
+                            <table>
+                                <tr><td></td><td>Ticker</td><td>Index Name</td><td>Price</td></tr>
+                                <tr ng-repeat="index in indices">
+                                    <td><input type="checkbox" /></td>
+                                    <td>{{index.Ticker}}</td>
+                                    <td>{{index.Name}}</td>
+                                    <td>{{index.Price}}</td>
+
+                                </tr>
+                            </table>
+
+                            <h3>Search by Ticker</h3>
+                            <input ng-model="tickerQuery" ng-change="queryIndex()" />
+                            <table>
+                                <tr><td>Ticker</td><td>Index Name</td><td>Price</td></tr>
+                                <tr>
+                                    <td>{{foundIndex.Ticker}}</td>
+                                    <td>{{foundIndex.Name}}</td>
+                                    <td>{{foundIndex.Price}}</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
