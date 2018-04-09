@@ -34,7 +34,7 @@ focused on figuring out all the other parts; they're more functional tests than 
 ## Angular
 I had a little more than an hour, then ran out of time (no unit tests, sorry). I'm really sorry I haven't made space to work with angular before, it's awesome.
 
-Current state: Can authenticate with users (password is always "secure password <user>")
+Current state: Can authenticate with users (password is always "secure password &lt;username&gt;")
 Once authenticated, can attempt to get all users (admin only), get all indices that the authenticated user has permission for,
 and search for an index by entering the ticker in the search box
 
