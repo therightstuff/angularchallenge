@@ -21,7 +21,7 @@ focused on figuring out all the other parts; they're more functional tests than 
 
 ## Swagger
 * Deploy the code to an IIS instance or run in VS debug mode, the index page has a link to the swagger UI
-* use the POST /api/users to authenticate and receive a JWT token, the POST body must be application/json in the following format:
+* use the <tt>POST /api/users</tt> to authenticate and receive a JWT token, the POST body must be application/json in the following format:
 {
 	"username": "admin",
 	"password": "secure password admin"
@@ -32,10 +32,10 @@ focused on figuring out all the other parts; they're more functional tests than 
 * there are ways to have swagger provide the correct formats but they were too time-consuming for this exercise
 
 ## Angular
-I had a little more than an hour, then ran out of time (no unit tests, sorry). I'm really sorry I haven't made space to work with angular before, it's awesome.
+I had a little more than an hour to do the frontend, then ran out of time (no unit tests, sorry). I'm really sorry I haven't made space to work with angular before, it's awesome.
 
 Current state: Can authenticate with users (password is always "secure password &lt;username&gt;")
 Once authenticated, can attempt to get all users (admin only), get all indices that the authenticated user has permission for,
 and search for an index by entering the ticker in the search box
 
-Intention: add a button to add selected indices to the selected user.
+Intention: add a button to add permissions for selected indices to the selected user, possibly another endpoint for removing index permission.
