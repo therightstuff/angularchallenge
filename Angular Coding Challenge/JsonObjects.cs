@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace Angular_Coding_Challenge
         /// <returns></returns>
         public static bool IsStringNullOrEmpty(dynamic obj, string name) {
             if (HasProperty(obj, name)) {
+                if (obj is JObject) {
+                    if (obj is JObject) {
+                        return (obj as JObject)[name] == null;
+                    }
+                }
                 if (obj is ExpandoObject) {
                     return string.IsNullOrEmpty(
                         ((IDictionary<string, object>)obj)[name].ToString()

@@ -50,15 +50,16 @@ namespace Angular_Coding_Challenge.Controllers
             string username;
             string password;
 
+            if (JsonObjects.IsStringNullOrEmpty(loginInfo, "username") ||
+                JsonObjects.IsStringNullOrEmpty(loginInfo, "password")
+            ) {
+                return BadRequest(INVALID_LOGIN_DATA);
+            }
+
             try {
                 username = loginInfo.username;
                 password = loginInfo.password;
-                // disabled temporarily, not a clue why this isn't doing the job
-                /*if (JsonObjects.IsStringNullOrEmpty(loginInfo, "username") ||
-                    JsonObjects.IsStringNullOrEmpty(loginInfo, "password")
-                ) {
-                    return BadRequest("not crashed");
-                }*/
+
             } catch (Exception) {
                 return BadRequest(INVALID_LOGIN_DATA);
             }
